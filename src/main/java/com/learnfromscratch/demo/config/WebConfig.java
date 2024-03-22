@@ -14,12 +14,11 @@ public class WebConfig implements WebMvcConfigurer {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // Allow cross-origin requests to all endpoints in the application
-                registry.addMapping("/**") // Apply CORS to all endpoints
-                        .allowedOrigins("http://localhost:3000") // Allow this origin
-                        .allowedMethods(HttpMethod.GET.name(),HttpMethod.POST.name(),HttpMethod.DELETE.name()) // Allow these HTTP methods
-                        .allowedHeaders(HttpHeaders.CONTENT_TYPE,HttpHeaders.AUTHORIZATION) // Allow all headers
-                        .allowCredentials(true).maxAge(3600);// Credential support
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:3000")
+                        .allowedMethods(HttpMethod.GET.name(),HttpMethod.POST.name(),HttpMethod.DELETE.name())
+                        .allowedHeaders(HttpHeaders.CONTENT_TYPE,HttpHeaders.AUTHORIZATION)
+                        .allowCredentials(true).maxAge(3600);
             }
         };
     }
